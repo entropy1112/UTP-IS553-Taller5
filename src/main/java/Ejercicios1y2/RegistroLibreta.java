@@ -1,7 +1,7 @@
 /*
- * 
+ *  Creación de la clase RegistroLibreta
  */
-package Ejercicio1;
+package Ejercicios1y2;
 
 /**
  *

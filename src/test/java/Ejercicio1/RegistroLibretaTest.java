@@ -5,6 +5,7 @@
  */
 package Ejercicio1;
 
+import Ejercicios1y2.RegistroLibreta;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
