@@ -18,7 +18,23 @@ public class RegistroLibretaTest {
     }
 
     @Test
-    public void testSomeMethod() {
+    public void RegistroLibretaPrimerConstructorYSetters() {
+        
+        String nombre = "Sebastian Narvaez";
+        String tel = "3817548724";
+        String correo = "sebasnarvaez@correo.com";
+        String dir = "Mz 43 Cs 12";
+        
+        var primerRegistro = new RegistroLibreta("Sebastian Narvaez",
+                                                 "3817548724");
+        
+        primerRegistro.setCorreo("sebasnarvaez@correo.com");
+        primerRegistro.setDir("Mz 43 Cs 12");
+        
+        assertEquals(nombre, primerRegistro.getNombre());
+        assertEquals(tel, primerRegistro.getTel());
+        assertEquals(correo, primerRegistro.getCorreo());
+        assertEquals(dir, primerRegistro.getDir());
     }
     
 }
