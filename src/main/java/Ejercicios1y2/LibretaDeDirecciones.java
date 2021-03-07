@@ -47,6 +47,8 @@ public class LibretaDeDirecciones {
                                +entrada.getDir()+"\n"+entrada.getCorreo()+"\n");
         });
         
+        System.out.println("-----------------------------------------------\n");
+        
     }
     
     public void actualizarEntrada(String nombreAnterior, String nombreNuevo, String tel, String dir,
