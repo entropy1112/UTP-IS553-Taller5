@@ -14,7 +14,7 @@ public class LibretaDeDirecciones {
     
     // Atributos
     private static final Integer MAX_ENTRADAS = 100;
-    protected Map<String, RegistroLibreta> libreta = new HashMap<String, RegistroLibreta>();
+    protected Map<String, RegistroLibreta> libreta = new HashMap<>();
    
     //Constructor
     public LibretaDeDirecciones() {
