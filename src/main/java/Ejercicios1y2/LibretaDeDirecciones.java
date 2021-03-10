@@ -51,8 +51,8 @@ public class LibretaDeDirecciones {
         
     }
     
-    public void actualizarEntrada(String nombreAnterior, String nombreNuevo, String tel, String dir,
-                                  String correo){
+    public void actualizarEntrada(String nombreAnterior, String nombreNuevo, 
+                                  String tel, String dir, String correo){
         
         var entrada = libreta.get(nombreAnterior);
         

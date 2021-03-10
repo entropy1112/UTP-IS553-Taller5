@@ -51,7 +51,7 @@ public class RegistroLibreta {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -59,7 +59,7 @@ public class RegistroLibreta {
     public String getTel() {
         return tel;
     }
-    
+
     public String getDir() {
         return dir;
     }
@@ -67,5 +67,5 @@ public class RegistroLibreta {
     public String getCorreo() {
         return correo;
     }
-
+    
 }
