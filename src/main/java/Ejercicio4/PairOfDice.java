@@ -31,6 +31,7 @@ public class PairOfDice implements Dice {
     public void valorLanzamiento(){
         
         Integer resultado = this.dice1 + this.dice2;
-        System.out.println(resultado);
+        System.out.println("las dados dieron: "+this.dice1+" y "+this.dice2
+                           +" = "+resultado);
     }
 }
