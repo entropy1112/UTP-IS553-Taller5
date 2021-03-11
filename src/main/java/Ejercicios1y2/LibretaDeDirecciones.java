@@ -52,7 +52,15 @@ public class LibretaDeDirecciones {
     }
     
     public void actualizarEntrada(String nombreAnterior, String nombreNuevo, 
-                                  String tel, String dir, String correo){
+                                  String tel, String dir, String correo)
+                                    throws CustomException {
+        
+        var nombresEntradas = libreta.keySet();
+        
+        if(!nombresEntradas.contains(nombreAnterior)){
+            throw new CustomException(nombreAnterior
+                                      +" no pertenece a la libreta");
+        }
         
         var entrada = libreta.get(nombreAnterior);
         

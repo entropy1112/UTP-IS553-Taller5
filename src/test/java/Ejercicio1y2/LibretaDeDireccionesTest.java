@@ -5,6 +5,7 @@
  */
 package Ejercicio1y2;
 
+import Ejercicios1y2.CustomException;
 import Ejercicios1y2.LibretaDeDirecciones;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -48,11 +49,13 @@ public class LibretaDeDireccionesTest {
         
         libreta.verEntradas();
         
-        libreta.actualizarEntrada("Carolina Ossa", "Caro Ossa", "No tiene", 
+        try {
+            libreta.actualizarEntrada("Carolina Ossa", "Caro Ossa", "No tiene", 
                                   "Mz 9 Cs 9", "Carossa@correo.com");
-        libreta.actualizarEntrada("Raul Ramirez", "Raul Fernando Alvarez", 
-                                  "3658471245", "Mz 58 Cs 8", "rarami@correo.com");
-        
+            libreta.actualizarEntrada("Raul Ramirez", "Raul Fernando Alvarez", 
+                                 "3658471245","Mz 58 Cs 8","rarami@correo.com");
+        } catch (CustomException e) {
+        }
         
         libreta.verEntradas();
         System.out.println("-----------------------------------------------\n");
@@ -75,13 +78,18 @@ public class LibretaDeDireccionesTest {
                               "rarami@correo.co");
         libreta.verEntradas();
         
-        libreta.actualizarEntrada("Diana Ossa", "Diana Ossa", "No tiene", 
+        try {
+            libreta.actualizarEntrada("Diana Ossa", "Diana Ossa", "No tiene", 
                                   "Mz 9 Cs 9", "DianaMarcela@correo.com");
-        libreta.actualizarEntrada("Sebastian Narvaez", "Sebas Narvaez", 
+            libreta.actualizarEntrada("Sebastian Narvaez", "Sebas Narvaez", 
                                   "3658471245", "Mz 9 Cs 9", "sebas@correo.com");
-        libreta.actualizarEntrada("Alejandra Franco", "Mayris Franco",
+            libreta.actualizarEntrada("Alejandra Franco", "Mayris Franco",
                                   "3233295771", "Mz 9 Cs 9", 
                                   "maleja@correo.co");
+        } catch (CustomException e) {
+        }
+        
+        
         libreta.verEntradas();
         
         libreta.borrarEntrada("John Herrera");
@@ -89,6 +97,33 @@ public class LibretaDeDireccionesTest {
         libreta.verEntradas();
         
         System.out.println("-----------------------------------------------\n");
+    }
+    
+    @Test
+    public void error() {
+        
+        var libreta = new LibretaDeDirecciones();
+        String mensaje="";
+        String mensajeEsperado = "John Castaño no pertenece a la libreta";
+        
+        libreta.añadirEntrada("Alejandra Franco", "3233295771", "Mz 9 Cs 2", 
+                              "maleja@correo.co");
+        libreta.añadirEntrada("Diana Bermudez", "3458571426", "Mz 3 Cs 7", 
+                              "diana@correo.co");
+        libreta.añadirEntrada("John Herrera", "3684751287", "Mz 7 Cs 7", 
+                              "jonhsito@correo.co");
+        
+        try {
+           libreta.actualizarEntrada("John Castaño","John Herrera","3214154578",
+                                  "Mz 9 Cs 2", "jonhsito@correo.com");
+        } catch (CustomException e) {
+            mensaje = e.getMessage();
+        }
+        
+        libreta.verEntradas();
+        System.out.println("-----------------------------------------------\n");
+        
+        assertEquals(mensajeEsperado, mensaje);
     }
     
 }
