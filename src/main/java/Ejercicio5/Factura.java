@@ -13,17 +13,29 @@ public class Factura extends Precio{
     private final String cliente;
     
     //Constructor
-    public Factura(String emisor, String cliente, Double aCancelar) {
+    public Factura(String emisor, String cliente, Double aCancelar){
         this.emisor = emisor;
         this.cliente = cliente;
         this.pesos = aCancelar;
     }
     
     //Métodos
-    public void ImprimirFactura(){
-        System.out.println("Factura generada por : "+this.emisor);
-        System.out.println("Cliente: "+this.cliente);
-        System.out.println("Valor cancelado "+this.getPesos());
+    public String ImprimirFactura() throws CustomException{
+        
+        if(this.getPesos() < 0 ){
+            throw new CustomException(this.getPesos()
+                                      +" no es una entrada válida");
+        }
+        
+        String mensaje;
+        
+        mensaje = "Factura generada por: "+this.emisor+"\n";
+        mensaje += "Cliente: "+this.cliente+"\n";
+        mensaje += "Valor cancelado: "+this.getPesos()+"\n";
+        
+        System.out.println(mensaje);
+        
+        return mensaje;
     }
     
 }

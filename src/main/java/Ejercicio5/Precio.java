@@ -9,6 +9,7 @@ package Ejercicio5;
  */
 public class Precio {
     public Double pesos;
+    
     public Double getPesos() {
         return pesos;
     }
