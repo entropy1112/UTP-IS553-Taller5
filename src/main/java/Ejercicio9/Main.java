@@ -13,26 +13,29 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         Integer num;
+        String resultado;
         
         System.out.print("Ingrese un número entero: ");
         num = scan.nextInt();
         
         try {
-            asteriscos(num);
+            resultado = asteriscos(num);
+            System.out.println(resultado);
         } catch (CustomException e) {
             System.out.println("Hubo un error. "+e.getMessage());
         }
     }
     
-    public static void asteriscos(Integer n) throws CustomException{
-        
-        Integer lim = (n*2 -1);
-        Character[][] mapa = new Character[lim][lim];
-        int cont=0;
+    public static String asteriscos(Integer n) throws CustomException{
         
         if(n<=0){
             throw new CustomException(n+" es un número inválido.");
         }
+        
+        Integer lim = (n*2 -1);
+        String mensaje="";
+        Character[][] mapa = new Character[lim][lim];
+        int cont=0;
         
         for(int i=0; i<lim; i++){
             for(int j=0; j<lim; j++){
@@ -53,10 +56,12 @@ public class Main {
         
         for(int i=0; i<lim; i++){
             for(int j=0; j<lim; j++){
-                System.out.print(mapa[i][j]);
+                mensaje += mapa[i][j];
             }
-            System.out.println("\n");
+            mensaje += "\n";
         }
+        
+        return mensaje;
         
     }
     
