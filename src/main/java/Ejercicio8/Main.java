@@ -17,20 +17,23 @@ public class Main {
         var entrada = new BufferedReader(new InputStreamReader(System.in)); 
         String hexa;
         Integer resul;
+        String mensaje;
         
         System.out.println("Ingrese un numero hexagesimal: ");
         hexa = entrada.readLine();
         
         try {
             resul = hexToDec(hexa);
-            System.out.println(hexa+" equivale a "+resul+" en decimal.");
+            mensaje = imprimir(resul,hexa);
+            System.out.println(mensaje);
         } catch (CustomException e) {
-            System.out.println("Sucedió un error. "+ e.getMessage());
+            mensaje = "Sucedió un error. "+ e.getMessage();
+            System.out.println(mensaje);
         }
         
     }
     
-    public Integer hexToDec(String hexa) throws CustomException{
+    public static Integer hexToDec(String hexa) throws CustomException{
         
         Boolean esHex = hexa.matches("[0-9A-F]+");
         if (!esHex) {
@@ -40,5 +43,14 @@ public class Main {
         Integer decimal = Integer.parseInt(hexa, 16);
        
         return decimal;
+    }
+    
+    public static String imprimir(Integer resul, String hexa){
+        
+        String mensaje;
+        
+        mensaje = hexa+" equivale a "+resul+" en decimal.";
+        
+        return mensaje;
     }
 }
