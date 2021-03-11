@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * @author Sebastian
  */
-public class MyMath implements Extremos<Double>{
+public final class MyMath implements Extremos<Double>{
     //Constructor
     public MyMath(){
         
